@@ -11,8 +11,23 @@ window.onload = function() {
   const cardValue = document.querySelector("#cardValue");
   const button = document.querySelector("#cardGenerator");
 
-  const cardValueList = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
-  const cardTypeList = ["♦", "♥", "♠", "♣", "J"];
+  const cardValueList = [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    "J",
+    "Q",
+    "K",
+    "A",
+    "Joker"
+  ];
+  const cardTypeList = ["♦", "♥", "♠", "♣"];
 
   let cardGenerator = event => {
     let randomCardValue =
@@ -20,11 +35,11 @@ window.onload = function() {
     let randomCardType =
       cardTypeList[Math.floor(Math.random() * cardTypeList.length)];
 
-    cardType[0].innerHTML = randomCardType;
-    cardType[1].innerHTML = randomCardType;
+    cardType[0].innerHTML = randomCardValue === "Joker" ? "J" : randomCardType;
+    cardType[1].innerHTML = randomCardValue === "Joker" ? "J" : randomCardType;
 
     cardValue.innerHTML =
-      randomCardType === "J"
+      randomCardValue === "Joker"
         ? "<img src='src/assets/img/istockphoto-538781960-612x612.jpeg' style='height: 150px;' />"
         : randomCardValue;
 
