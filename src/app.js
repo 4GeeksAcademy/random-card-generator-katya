@@ -46,8 +46,10 @@ window.onload = function() {
     const isRed = randomCardType === "♦" || randomCardType === "♥";
     cardType[0].classList.toggle("text-danger", isRed);
     cardType[1].classList.toggle("text-danger", isRed);
+    cardValue.classList.toggle("text-danger", isRed);
     cardType[0].classList.toggle("text-black", !isRed);
     cardType[1].classList.toggle("text-black", !isRed);
+    cardValue.classList.toggle("text-black", !isRed);
   };
   button.addEventListener("click", cardGenerator);
 };
