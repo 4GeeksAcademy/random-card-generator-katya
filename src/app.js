@@ -43,20 +43,11 @@ window.onload = function() {
         ? "<img src='src/assets/img/istockphoto-538781960-612x612.jpeg' style='height: 150px;' />"
         : randomCardValue;
 
-    let styleTypeUp = cardType[0].classList;
-    let styleTypeDown = cardType[1].classList;
-
-    if (randomCardType === "♣" || randomCardType === "♠") {
-      styleTypeUp.remove("text-danger");
-      styleTypeDown.remove("text-danger");
-      styleTypeUp.add("text-black");
-      styleTypeDown.add("text-black");
-    } else if (randomCardType === "♦" || randomCardType === "♥") {
-      styleTypeUp.remove("text-black");
-      styleTypeDown.remove("text-black");
-      styleTypeUp.add("text-danger");
-      styleTypeDown.add("text-danger");
-    }
+    const isRed = randomCardType === "♦" || randomCardType === "♥";
+    cardType[0].classList.toggle("text-danger", isRed);
+    cardType[1].classList.toggle("text-danger", isRed);
+    cardType[0].classList.toggle("text-black", !isRed);
+    cardType[1].classList.toggle("text-black", !isRed);
   };
   button.addEventListener("click", cardGenerator);
 };
